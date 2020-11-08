@@ -28,19 +28,19 @@ let options = {
 app.get('/', (req, res) => {
   res.send('Hi hassona!')
 });
-app.get('/home',(req,res)=>{
-   res.send('Home');
+app.get('/home', (req, res) => {
+  res.send('Home');
 });
-app.get('/home/whether',(req,res)=>{
-  let lat= req.query.lat;
-  let lon=req.query.lng;
-  options.qs.lat=lat;
-  options.qs.lon=lon;
-  
+app.get('/home/whether', (req, res) => {
+  let lat = req.query.lat;
+  let lon = req.query.lng;
+  options.qs.lat = lat;
+  options.qs.lon = lon;
+
   request(options, function (error, response, body) {
-    if (error) { throw new Error(error)}
-     
-   res.send(JSON.stringify(body));
+    if (error) { throw new Error(error) }
+
+    res.send(JSON.stringify(body));
   });
 })
 
